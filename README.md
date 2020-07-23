@@ -17,6 +17,7 @@ Your users should be able to:
 ## Lin's goal for doing this challenge
 - Experience with theme switching!
 - Practice styled-components 
+- Practice flexbox and css grid
 - Build functional components in react 
 - Continue to work on #100DaysOfCode ✅
 - Have fun building! 🚀
