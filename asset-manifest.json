@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/social-media-dashboard/static/css/main.d1b05096.chunk.css",
+    "main.js": "/social-media-dashboard/static/js/main.1f8258f2.chunk.js",
+    "main.js.map": "/social-media-dashboard/static/js/main.1f8258f2.chunk.js.map",
+    "runtime-main.js": "/social-media-dashboard/static/js/runtime-main.e6eaf8f9.js",
+    "runtime-main.js.map": "/social-media-dashboard/static/js/runtime-main.e6eaf8f9.js.map",
+    "static/js/2.ba97eb4d.chunk.js": "/social-media-dashboard/static/js/2.ba97eb4d.chunk.js",
+    "static/js/2.ba97eb4d.chunk.js.map": "/social-media-dashboard/static/js/2.ba97eb4d.chunk.js.map",
+    "index.html": "/social-media-dashboard/index.html",
+    "precache-manifest.40a6a5b0fbba67e6c76439de0dc06396.js": "/social-media-dashboard/precache-manifest.40a6a5b0fbba67e6c76439de0dc06396.js",
+    "service-worker.js": "/social-media-dashboard/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/social-media-dashboard/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.ba97eb4d.chunk.js.LICENSE.txt": "/social-media-dashboard/static/js/2.ba97eb4d.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/social-media-dashboard/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6eaf8f9.js",
+    "static/js/2.ba97eb4d.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.1f8258f2.chunk.js"
+  ]
+}
