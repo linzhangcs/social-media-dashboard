@@ -15,17 +15,17 @@ Your users should be able to:
 - Toggle color theme to their preference
 
 ## Lin's goal for doing this challenge
-Experience with theme switching!
-Practice styled-components 
-Build functional components in react 
-Continue to work on #100DaysOfCode ✅
-Have fun building! 🚀
+- Experience with theme switching!
+- Practice styled-components 
+- Build functional components in react 
+- Continue to work on #100DaysOfCode ✅
+- Have fun building! 🚀
 
 ## Tools & tech used:
-react.js
-npm/yarn
-styled-components
-flexbox
-github
-google fonts
-photoshop
+- react.js
+- npm/yarn
+- styled-components
+- flexbox
+- github
+- google fonts
+- photoshop
