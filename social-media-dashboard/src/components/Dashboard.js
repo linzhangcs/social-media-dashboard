@@ -8,8 +8,7 @@ function Dashboard({data}) {
     console.log(data);
     return(
       <>
-      <div>Dashboard</div>
-      <p>{data.totalFollower}</p>
+      <div>DASHBOARD CONTENT</div>
       </>
     );
 }
