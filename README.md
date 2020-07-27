@@ -22,6 +22,10 @@ Your users should be able to:
 - Continue to work on #100DaysOfCode ✅
 - Have fun building! 🚀
 
+## Developement Timeline: 
+- 07/24 - project setup - JSON data, components, styled-components : 2hours
+- 07/27 - 
+
 ## Tools & tech used:
 - react.js
 - npm/yarn
