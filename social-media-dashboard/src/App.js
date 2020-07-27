@@ -10,10 +10,12 @@ const statusData = socialMediaData;
 const Body = styled.div`
   height: 100vh;
   display: flex;
+  padding: 40px 165px;
   flex-direction: column;
   justify-content: flex-start;
   align-item: center;
   font-size: 14px;
+  font-family: "Inter", sans-serif;
 
   ${({ theme }) => theme === 'dark' && css`
     color: ${darkTheme.white};
@@ -28,11 +30,11 @@ const Body = styled.div`
 
 function App() {
   const [theme, setTheme] = useState('dark');
-  
+
   return (
       <Body theme={theme}>
-        <DashboardHeader data={statusData}></DashboardHeader>
-        <Dashboard data={statusData}></Dashboard>
+        <DashboardHeader theme={theme} setTheme={setTheme} data={statusData}></DashboardHeader>
+        <Dashboard theme={theme} data={statusData}></Dashboard>
       </Body>
   );
 }
