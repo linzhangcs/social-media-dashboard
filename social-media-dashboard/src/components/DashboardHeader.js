@@ -5,11 +5,11 @@ import { colors, darkTheme, lightTheme } from '../style/global.js';
 
 const Header = styled.div`
     box-sizing: border-box;
-    width: 100%;
+
     min-height: 245px;
     display: flex;
     position: relative;
-    padding: 40px 162px 0;
+    padding: 40px calc((162 / 1440) * 100%) 0;
     justify-content: space-between;
     align-items: top;
     text-transform: capitalize;
@@ -52,7 +52,6 @@ const ThemeToggle = styled.span`
 
     &::after{
        position: absolute;
-    //    top: 50%;
        transform: translate(22%, -120%);
        height: 18px;
        width: 18px; 
