@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Dashboard from './Dashboard';
 import { colors, darkTheme, lightTheme } from '../style/global.js';
 
-
 const Header = styled.div`
+    box-sizing: border-box;
     width: 100%;
+    min-height: 245px;
     display: flex;
+    position: relative;
+    padding: 40px 162px 0;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
     text-transform: capitalize;
     h2{
+        margin-top: 0;
         margin-bottom: 12px;
     }
     .followers-number, .theme-toggle-wrapper{
         font-weight: 700;
     }
     ${({ theme }) => theme === 'dark' && css`
+        background-color: ${darkTheme.veryDarkBlueTopBg};
+        // background-color: ${darkTheme.toggleGradientOne};
+
         .followers-number{
             color: ${darkTheme.blueText};
         }
+
     `}
 `;
 
@@ -61,7 +69,7 @@ const ThemeToggle = styled.span`
 `;
 
 const ThemeSwitch = styled.label`
-    display: inline-flex;
+    display: flex;
     align-items: center;
 
     [type=checkbox]{
@@ -73,6 +81,7 @@ const ThemeSwitch = styled.label`
         transform: translate(calc(47px - 100%), -120%);
     }
 `;
+
 function DashboardHeader({theme, setTheme, data}){
 
     const themeToggleHandler = event => {
@@ -80,6 +89,7 @@ function DashboardHeader({theme, setTheme, data}){
         const theme = event.target.checked ? 'dark' : 'light';
         setTheme(theme);
     };
+
     return(
     <Header theme={theme}>
         <div>
