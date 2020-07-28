@@ -1,7 +1,8 @@
 {   
     "totalFollowersNumber": 23004,
-    "socialMedia": [{
-      "facebook": {
+    "socialMedia": [
+        {
+        "platform":"facebook",
         "handle": "@nathanf",
         "followers": 1987,
         "changes": 12,
@@ -10,7 +11,7 @@
         "likes": 52,
         "likesChanges": -2
       },
-      "twitter": {
+      { "platform": "twitter",
         "handle": "@nathanf",
         "followers": 1044,
         "changes": 99,
@@ -19,7 +20,7 @@
         "likes": 507,
         "likesChanges": 553
       },
-      "instagram": {
+      { "platform": "instagram",
         "handle": "@realnathanf",
         "followers": "11k",
         "changes": 1099,
@@ -28,7 +29,7 @@
         "likes": 5462,
         "likesChanges": 2257
       },
-      "youtube": {
+      { "platform": "youtube",
         "handle": "Nathan F.",
         "followers": 8239,
         "changes": -144,
@@ -37,5 +38,49 @@
         "likes": 107,
         "likesChanges": -19
       }
-    }]
+    ],
+    "dailyOverview": [
+      {
+        "platform":"facebook",
+        "measurement": "page views",
+        "enagement": 87,
+        "enagementChanges": 3
+      },
+      {
+        "platform":"facebook",
+        "measurement": "likes",
+        "enagement": 52,
+        "enagementChanges": -2
+      },
+      { "platform": "instagram",
+        "measurement": "likes",
+        "enagement": 5462,
+        "enagementChanges": 2257
+      },
+      { "platform": "instagram",
+        "measurement": "profile views",
+        "enagement": "52K",
+        "enagementChanges": 1375
+      },
+      { "platform": "twitter",
+        "measurement": "retweets",
+        "enagement": 117,
+        "enagementChanges": 303
+      },
+      { "platform": "twitter",
+        "measurement": "likes",
+        "enagement": 507,
+        "enagementChanges": 553
+      },
+      { "platform": "youtube",
+        "measurement": "likes",
+        "enagement": 107,
+        "enagementChanges": -19
+      },
+      { "platform": "youtube",
+        "measurement": "total views",
+        "enagement": 1407,
+        "enagementChanges": -12
+      }
+    ]
   }
