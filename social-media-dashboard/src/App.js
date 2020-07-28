@@ -6,11 +6,11 @@ import DashboardHeader from './components/DashboardHeader';
 import styled, { css } from 'styled-components';
 import { darkTheme, lightTheme } from './style/global.js';
 
+// const socialMediaData = {"hi":"ho"};
 const statusData = socialMediaData;
 const Body = styled.div`
   height: 100vh;
   display: flex;
-  padding: 40px 165px;
   flex-direction: column;
   justify-content: flex-start;
   align-item: center;
@@ -20,17 +20,20 @@ const Body = styled.div`
   ${({ theme }) => theme === 'dark' && css`
     color: ${darkTheme.white};
     background-color: ${darkTheme.veryDarkBlueBg};
+    .dashboard-header{
+      background-color: ${darkTheme.white};
+    }  
   `}
 
   ${({ theme }) => theme === 'light' && css`
     color: ${lightTheme.darkBlueText};
     background-color: ${lightTheme.whiteBg};
   `}
+
 `;
 
 function App() {
   const [theme, setTheme] = useState('dark');
-
   return (
       <Body theme={theme}>
         <DashboardHeader theme={theme} setTheme={setTheme} data={statusData}></DashboardHeader>
