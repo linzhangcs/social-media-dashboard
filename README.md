@@ -24,13 +24,15 @@ Your users should be able to:
 
 ## Developement Timeline: 
 - 07/24 - project setup - JSON data, components, styled-components : 2hours
-- 07/27 - 
+- 07/27 - theme toggle - pass theme btw components & style dark/light theme for header & placement for dashboard grid - 3hrs
+- 07/28 - dashboard grid layout - setup the grid and nested flexbox for items, used flex-wrap for daily stats items. Also used extending component in styled components, styled(component), and used border-image-source, used linear-gradient as border and border-image-slice. - 4 hrs 
+-07/29 -
 
 ## Tools & tech used:
 - react.js
-- npm/yarn
 - styled-components
-- flexbox
-- github
+- grid & flexbox
+- npm/yarn
+- github pages
 - google fonts
 - photoshop
