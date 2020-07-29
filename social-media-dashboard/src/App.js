@@ -16,6 +16,7 @@ const Body = styled.div`
   align-item: center;
   font-size: 14px;
   font-family: "Inter", sans-serif;
+  transition: background 0.6s ease;
 
   ${({ theme }) => theme === 'dark' && css`
     color: ${darkTheme.white};

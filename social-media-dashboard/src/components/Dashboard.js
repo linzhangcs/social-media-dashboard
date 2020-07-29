@@ -33,6 +33,9 @@ const InlineIcon = styled.div`
         padding-right: 10px;
         vertical-align: middle;
     }
+    ${({ theme }) => theme === 'dark' && css`
+        color: ${darkTheme.blueText}
+    `};
     ${({ iconName }) => iconName === 'facebook' && css`
         &::before{
             content:url(${fb});
@@ -61,11 +64,33 @@ const Item = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 0 0 10px 10px;
-    align-items: center;       
-    background-color: ${darkTheme.darkBlue};
+    align-items: center;
+    cursor: pointer;     
+    transition: background-color 400ms ease;
+    .follower-label{
+        text-transform: uppercase;
+        letter-spacing: 0.4em;
+        margin-top: -30px;
+    }
 
     ${({ theme }) => theme === 'dark' && css`
-
+        background-color: ${darkTheme.darkBlue};
+        &:hover{
+            background-color: ${darkTheme.blue};
+        }
+        .follower-label{
+            color: ${darkTheme.blueText};
+        }
+    `};
+    
+    ${({ theme }) => theme === 'light' && css`
+        background-color: ${lightTheme.lightGrayishBlueCard};
+        &:hover{
+            background-color: ${lightTheme.cardHover};
+        }
+        .follower-label{
+            color: ${lightTheme.darkGrayishBlueText};
+        }
     `};
 `;
 
@@ -86,16 +111,22 @@ const StatsItem = styled(Item)`
         text-align: right;
         padding-right: 26px;
     }
+
+    ${({ theme }) => theme === 'dark' && css`
+    background-color: ${darkTheme.darkBlue};
+    &:hover{
+        background-color: ${darkTheme.blue};
+    }
+`};
 `;  
 
 const DashboardCard = styled.div`
     min-height: 220px;
-    background-color: ${ darkTheme.darkBlue };
     border-radius: 10px;
     border-top: 6px solid ${ colors.facebook };
 
     .follower-stats{
-        font-size: 3.5em;
+        font-size: 4em;
         font-weight: 700;
     }
 
@@ -123,32 +154,36 @@ const DashboardCard = styled.div`
             color: ${ darkTheme.white };
         }
     `}
+
+    ${({ theme }) => theme === 'light' && css`
+        background-color: ${ lightTheme.lightGrayishBlueCard };
+    `}
 `;
 
 const DashboardCardSmall = styled(DashboardCard)`
     border-top: none;
     min-height: 116px;
 `;
-function PlatformCard({info}){
+function PlatformCard({theme, info}){
     console.log("card", info);
     return(
         <DashboardCard brandColor={`${info.platform}`}>
-            <Item>
-                <InlineIcon iconName={`${info.platform}`} className="handler">{info.handle}</InlineIcon>
+            <Item theme={theme}>
+                <InlineIcon theme={theme} iconName={`${info.platform}`} className="handler">{info.handle}</InlineIcon>
                 <div className="follower-stats">{info.followers}</div>
-                <div className="follower-label">followers</div>
+                {(info.platform !== 'youtube' ? <div className="follower-label">followers</div> : <div className="follower-label">subscribers</div> )}
                 <div className="stats-changes">{info.changes}</div>
             </Item>
         </DashboardCard>
     );
 }
 
-function OverviewCard({stats}){
+function OverviewCard({theme, stats}){
     console.log("stats", stats);
 
     return(
         <DashboardCardSmall>
-            <StatsItem>
+            <StatsItem theme={theme}>
                 <div className="title">{stats.measurement}</div>
                 <div className="platform">{stats.platform}</div>
                 <div className="stats">{stats.enagement}</div>
@@ -161,14 +196,14 @@ function Dashboard({theme, data}) {
     return(
       <DashboardGrid>
         {   data.socialMedia.map((platform) => 
-                <PlatformCard className="item" info={platform}></PlatformCard>
+                <PlatformCard theme={theme} className="item" info={platform}></PlatformCard>
             )}
 
         <h3 className="overview-title">
             overview - today
         </h3>
         {data.dailyOverview.map((stats) => 
-                <OverviewCard className="stats-item" stats={stats}></OverviewCard>
+                <OverviewCard theme={theme} className="stats-item" stats={stats}></OverviewCard>
             )
         }
         

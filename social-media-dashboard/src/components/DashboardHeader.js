@@ -13,6 +13,8 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: top;
     text-transform: capitalize;
+    transition: background-color 600ms ease-in-out;
+
     h2{
         margin-top: 0;
         margin-bottom: 12px;
@@ -20,15 +22,21 @@ const Header = styled.div`
     .followers-number, .theme-toggle-wrapper{
         font-weight: 700;
     }
+
     ${({ theme }) => theme === 'dark' && css`
         background-color: ${darkTheme.veryDarkBlueTopBg};
-        // background-color: ${darkTheme.toggleGradientOne};
-
         .followers-number{
             color: ${darkTheme.blueText};
         }
-
     `}
+
+    ${({ theme }) => theme === 'light' && css`
+    background-color: ${lightTheme.paleBlue};
+    .followers-number{
+        color: ${lightTheme.darkBlueText};
+    }
+`}
+
 `;
 
 const ThemeToggle = styled.span`
@@ -36,7 +44,7 @@ const ThemeToggle = styled.span`
     margin: 0 12px;
     &::before, &::after{
         content: '';
-        transition: all 300ms linear;
+        transition: all 900ms ease;
         display: block;
         background: white;
         margin: 0 3px;
@@ -52,7 +60,8 @@ const ThemeToggle = styled.span`
 
     &::after{
        position: absolute;
-       transform: translate(22%, -120%);
+       transform: translate(calc(47px - 100%), -120%);
+
        height: 18px;
        width: 18px; 
        border-radius: 50%;
@@ -77,7 +86,7 @@ const ThemeSwitch = styled.label`
         opacity: 0;
     }
     [type=checkbox]:checked+${ThemeToggle}::after{
-        transform: translate(calc(47px - 100%), -120%);
+        transform: translate(22%, -120%);
     }
 `;
 
