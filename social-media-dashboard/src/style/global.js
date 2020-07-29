@@ -12,6 +12,7 @@ export const darkTheme = {
     veryDarkBlueBg: 'hsl(230, 17%, 14%)',
     veryDarkBlueTopBg: 'hsl(232, 19%, 15%)',
     darkBlue: 'hsl(228, 28%, 20%)',
+    blue: 'hsl(228, 41%, 34%)',
     blueText: 'hsl(228, 34%, 66%)',
     white: 'hsl(0, 0%, 100%)',
     toggleGradientOne:'hsl(210, 78%, 56%)',
@@ -22,6 +23,7 @@ export const lightTheme = {
     whiteBg: 'hsl(0, 0%, 100%)',
     paleBlue: 'hsl(225, 100%, 98%)',
     lightGrayishBlueCard: 'hsl(227, 47%, 96%)',
+    cardHover: '#e1e3f0',
     darkGrayishBlueText: 'hsl(228, 12%, 44%)',
     darkBlueText: 'hsl(230, 17%, 14%)',
     toggle: 'hsl(230, 22%, 74%)'
