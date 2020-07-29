@@ -1,6 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { colors, darkTheme, lightTheme } from '../style/global.js';
+import fb from '../images/icon-facebook.svg';
+import insta from '../images/icon-instagram.svg';
+import tw from '../images/icon-twitter.svg';
+import yt from '../images/icon-youtube.svg';
+import down from '../images/icon-down.svg';
+import up from '../images/icon-up.svg';
 
 const DashboardGrid = styled.div`
     box-sizing: border-box;
@@ -17,6 +23,38 @@ const DashboardGrid = styled.div`
         text-transform: capitalize;
     }
 `;
+
+const InlineIcon = styled.div`
+    font-size: 0.9em;
+    font-weight: 700;
+    &::before{
+        width: 20px;
+        height: 20px;
+        padding-right: 10px;
+        vertical-align: middle;
+    }
+    ${({ iconName }) => iconName === 'facebook' && css`
+        &::before{
+            content:url(${fb});
+        }
+    `};
+    ${({ iconName }) => iconName === 'instagram' && css`
+        &::before{
+            content:url(${insta});
+        }
+    `};
+    ${({ iconName }) => iconName === 'twitter' && css`
+        &::before{
+            content:url(${tw});
+        }
+    `};
+    ${({ iconName }) => iconName === 'youtube' && css`
+        &::before{
+            content:url(${yt});
+        }
+    `};
+`;
+
 const Item = styled.div`
     min-height: 230px; 
     display: flex;
@@ -24,7 +62,11 @@ const Item = styled.div`
     justify-content: space-evenly;
     border-radius: 0 0 10px 10px;
     align-items: center;       
-    background-color: ${ darkTheme.darkBlue};
+    background-color: ${darkTheme.darkBlue};
+
+    ${({ theme }) => theme === 'dark' && css`
+
+    `};
 `;
 
 const StatsItem = styled(Item)`
@@ -32,6 +74,7 @@ const StatsItem = styled(Item)`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-radius: 8px;
     align-content: space-evenly;
     align-items: space-evenly;
     div{
@@ -56,6 +99,24 @@ const DashboardCard = styled.div`
         font-weight: 700;
     }
 
+    ${({ brandColor }) => brandColor === 'facebook' && css`
+        border-top: 6px solid ${ colors.facebook };
+    `};
+    ${({ brandColor }) => brandColor === 'instagram' && css`
+        border-top: 6px solid; 
+        border-image-slice: 1;
+        border-width: 5px;
+        border-radius: inherit;
+        border-image-source: linear-gradient(45deg, ${colors.instagramGradientOne}, ${colors.instagramGradientTwo});
+    `};
+    ${({ brandColor }) => brandColor === 'twitter' && css`
+        border-top: 6px solid ${ colors.twitter };
+    `};
+    ${({ brandColor }) => brandColor === 'youtube' && css`
+        border-top: 6px solid ${ colors.youtube };
+    `};
+
+
     ${({ theme }) => theme === 'dark' && css`
         background-color: ${ darkTheme.darkBlue };
         .follower-stats{
@@ -65,15 +126,17 @@ const DashboardCard = styled.div`
 `;
 
 const DashboardCardSmall = styled(DashboardCard)`
+    border-top: none;
     min-height: 116px;
 `;
 function PlatformCard({info}){
     console.log("card", info);
     return(
-        <DashboardCard>
+        <DashboardCard brandColor={`${info.platform}`}>
             <Item>
-                <div className="handler">{info.handle}</div>
+                <InlineIcon iconName={`${info.platform}`} className="handler">{info.handle}</InlineIcon>
                 <div className="follower-stats">{info.followers}</div>
+                <div className="follower-label">followers</div>
                 <div className="stats-changes">{info.changes}</div>
             </Item>
         </DashboardCard>
