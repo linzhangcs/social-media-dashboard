@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { colors, darkTheme, lightTheme } from '../style/global.js';
+import { colors, darkTheme, lightTheme, breakpoints } from '../style/global.js';
 import fb from '../images/icon-facebook.svg';
 import insta from '../images/icon-instagram.svg';
 import tw from '../images/icon-twitter.svg';
@@ -15,13 +15,29 @@ const DashboardGrid = styled.div`
     top: 136px;
     left: calc((162 / 1440) * 100%);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 24px;
-    .overview-title{
-        grid-column: 1/5;
-        grid-row: 2/3;
-        text-transform: capitalize;
+    grid-gap: 24px;    
+    grid-template-columns: 1fr;
+
+    @media (min-width: ${breakpoints.tabletlrg}){
+        grid-template-columns: repeat(2, 1fr);
+        .overview-title{
+            grid-column: 1/3;
+            grid-row: 3/4;    
+        }
     }
+    
+    @media (min-width: ${breakpoints. desktop}){
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 24px;    
+        .overview-title{
+            grid-column: 1/5;
+            grid-row: 2/3;
+            text-transform: capitalize;
+        }
+    
+    }
+
 `;
 
 const InlineIcon = styled.div`
@@ -206,7 +222,6 @@ const DashboardCardSmall = styled(DashboardCard)`
 `;
 
 function PlatformCard({theme, info}){
-    console.log("card", info);
     return(
         <DashboardCard brandColor={`${info.platform}`}>
             <Item theme={theme}>
@@ -220,8 +235,6 @@ function PlatformCard({theme, info}){
 }
 
 function OverviewCard({theme, stats}){
-    console.log("stats", stats);
-
     return(
         <DashboardCardSmall>
             <StatsItem theme={theme}>
