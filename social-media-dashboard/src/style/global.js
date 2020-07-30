@@ -31,5 +31,7 @@ export const lightTheme = {
 
 export const breakpoints = {
     mobile: '375px',
+    tabletlrg: '1024px',
+    tablet: '768px',
     desktop: '1440px',
 }
