@@ -1,42 +1,30 @@
 {   
-    "totalFollowersNumber": 23004,
+    "totalFollowersNumber": "23,004",
     "socialMedia": [
         {
         "platform":"facebook",
         "handle": "@nathanf",
         "followers": 1987,
-        "changes": 12,
-        "enagement": 87,
-        "enagementChanges": 3,
-        "likes": 52,
-        "likesChanges": -2
+        "changes": "12% today",
+        "changeDirection": "up"
       },
       { "platform": "twitter",
         "handle": "@nathanf",
         "followers": 1044,
-        "changes": 99,
-        "enagement": 117,
-        "enagementChanges": 303,
-        "likes": 507,
-        "likesChanges": 553
+        "changes": "99% today",
+        "changeDirection": "up"
       },
       { "platform": "instagram",
         "handle": "@realnathanf",
         "followers": "11k",
-        "changes": 1099,
-        "enagement": "52K",
-        "enagementChanges": 1375,
-        "likes": 5462,
-        "likesChanges": 2257
+        "changes": "1099% today",
+        "changeDirection": "up"
       },
       { "platform": "youtube",
         "handle": "Nathan F.",
         "followers": 8239,
-        "changes": -144,
-        "enagement": 1407,
-        "enagementChanges": -12,
-        "likes": 107,
-        "likesChanges": -19
+        "changes": "144% today",
+        "changeDirection": "down"
       }
     ],
     "dailyOverview": [
@@ -44,43 +32,51 @@
         "platform":"facebook",
         "measurement": "page views",
         "enagement": 87,
-        "enagementChanges": 3
+        "enagementChanges": "3%",
+        "changeDirection": "up"
       },
       {
         "platform":"facebook",
         "measurement": "likes",
         "enagement": 52,
-        "enagementChanges": -2
+        "enagementChanges": "2%",
+        "changeDirection": "down"
       },
       { "platform": "instagram",
         "measurement": "likes",
         "enagement": 5462,
-        "enagementChanges": 2257
+        "enagementChanges": "2257%",
+        "changeDirection": "up"
       },
       { "platform": "instagram",
         "measurement": "profile views",
         "enagement": "52K",
-        "enagementChanges": 1375
+        "enagementChanges": "1375%",
+        "changeDirection": "up"
       },
       { "platform": "twitter",
         "measurement": "retweets",
         "enagement": 117,
-        "enagementChanges": 303
+        "enagementChanges": "303%",
+        "changeDirection": "up"
       },
       { "platform": "twitter",
         "measurement": "likes",
         "enagement": 507,
-        "enagementChanges": 553
+        "enagementChanges": "553%",
+        "changeDirection": "up"
       },
       { "platform": "youtube",
         "measurement": "likes",
         "enagement": 107,
-        "enagementChanges": -19
+        "enagementChanges": "19%",
+        "changeDirection": "down"
       },
       { "platform": "youtube",
         "measurement": "total views",
         "enagement": 1407,
-        "enagementChanges": -12
+        "enagementChanges": "12%",
+        "changeDirection": "down"
       }
     ]
   }
