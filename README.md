@@ -26,7 +26,7 @@ Your users should be able to:
 - 07/24 - project setup - JSON data, components, styled-components : 2 hours
 - 07/27 - theme toggle - pass theme btw components & style dark/light theme for header & placement for dashboard grid - 3 hrs
 - 07/28 - dashboard grid layout - setup the grid and nested flexbox for items, used flex-wrap for daily stats items. Also used extending component in styled components, styled(component), and used border-image-source, used linear-gradient as border and border-image-slice. - 4 hrs 
-- 07/29 - finish styling all the element within a dashboard card - Ticker & PlatformIcon and add light theme version for them - 2.5 hrs
+- 07/29 - finish styling all the element within a dashboard card - Ticker & PlatformIcon and add light theme version for them & added tablet and mobile layout changes - 3 hrs
 
 ## Tools & tech used:
 - react.js
