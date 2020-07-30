@@ -30,9 +30,13 @@ const InlineIcon = styled.div`
     &::before{
         width: 20px;
         height: 20px;
-        padding-right: 10px;
         vertical-align: middle;
     }
+    ${({ space }) => space && css`
+        &::before{
+            padding-right: 10px;
+        }    
+    `};
     ${({ theme }) => theme === 'dark' && css`
         color: ${darkTheme.blueText}
     `};
@@ -56,6 +60,30 @@ const InlineIcon = styled.div`
             content:url(${yt});
         }
     `};
+`;
+
+const Ticker = styled.div`
+    font-weight: 700;
+    text-transform: capitalize;
+    &::before{
+        padding-right: 5px;
+        vertical-align: super;
+    }
+
+    ${({ changeDirection }) =>  changeDirection === 'up' && css`
+        color: ${colors.primaryLimeGreen};
+        &::before{
+            content: url(${ up });
+        }
+        `
+    }
+    ${({ changeDirection }) =>  changeDirection === 'down' && css`
+        color: ${colors.primaryBrightRed};
+        &::before{
+            content: url(${ down});
+        }    
+        `
+    }
 `;
 
 const Item = styled.div`
@@ -102,22 +130,34 @@ const StatsItem = styled(Item)`
     border-radius: 8px;
     align-content: space-evenly;
     align-items: space-evenly;
+    text-transform: capitalize;
+    font-weight: 700;
+
     div{
         box-sizing: border-box;
         flex: 0 50%;
-        padding-left: 26px;
+        padding-left: 25px;
     }
     .platform, .stats-changes{
         text-align: right;
-        padding-right: 26px;
+        padding-right: 25px;
+    }
+    .stats{
+        font-size: 2em;
     }
 
     ${({ theme }) => theme === 'dark' && css`
-    background-color: ${darkTheme.darkBlue};
-    &:hover{
-        background-color: ${darkTheme.blue};
-    }
-`};
+        background-color: ${darkTheme.darkBlue};
+        .title{
+            color: ${ darkTheme.blueText };
+        }
+    `}
+    ${({ theme }) => theme === 'light' && css`
+        color: ${ lightTheme.darkBlueText };
+        .title{
+            color: ${ lightTheme.darkGrayishBlueText };
+        }
+    `}
 `;  
 
 const DashboardCard = styled.div`
@@ -164,15 +204,16 @@ const DashboardCardSmall = styled(DashboardCard)`
     border-top: none;
     min-height: 116px;
 `;
+
 function PlatformCard({theme, info}){
     console.log("card", info);
     return(
         <DashboardCard brandColor={`${info.platform}`}>
             <Item theme={theme}>
-                <InlineIcon theme={theme} iconName={`${info.platform}`} className="handler">{info.handle}</InlineIcon>
+                <InlineIcon space={true} theme={theme} iconName={`${info.platform}`}>{info.handle}</InlineIcon>
                 <div className="follower-stats">{info.followers}</div>
                 {(info.platform !== 'youtube' ? <div className="follower-label">followers</div> : <div className="follower-label">subscribers</div> )}
-                <div className="stats-changes">{info.changes}</div>
+                <Ticker changeDirection={info.changeDirection} className="stats-changes">{info.changes}</Ticker>
             </Item>
         </DashboardCard>
     );
@@ -185,9 +226,9 @@ function OverviewCard({theme, stats}){
         <DashboardCardSmall>
             <StatsItem theme={theme}>
                 <div className="title">{stats.measurement}</div>
-                <div className="platform">{stats.platform}</div>
+                <InlineIcon iconName={`${stats.platform}`} className="platform"></InlineIcon>
                 <div className="stats">{stats.enagement}</div>
-                <div className="stats-changes">{stats.enagementChanges}</div>
+                <Ticker changeDirection={stats.changeDirection} className="stats-changes">{stats.enagementChanges}</Ticker>
             </StatsItem>
         </DashboardCardSmall>
     );
