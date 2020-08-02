@@ -25,7 +25,7 @@ const DashboardGrid = styled.div`
             grid-row: 3/4;    
         }
     }
-    
+
     @media (min-width: ${breakpoints. desktop}){
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -35,7 +35,6 @@ const DashboardGrid = styled.div`
             grid-row: 2/3;
             text-transform: capitalize;
         }
-    
     }
 
 `;

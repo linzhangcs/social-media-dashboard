@@ -24,6 +24,9 @@ export const lightTheme = {
     paleBlue: 'hsl(225, 100%, 98%)',
     lightGrayishBlueCard: 'hsl(227, 47%, 96%)',
     cardHover: '#e1e3f0',
+    toggleBg: '#aeb2cb',
+    darkGreyText: '#767680',
+    darkGreyLine:'#898c9d', 
     darkGrayishBlueText: 'hsl(228, 12%, 44%)',
     darkBlueText: 'hsl(230, 17%, 14%)',
     toggle: 'hsl(230, 22%, 74%)'
