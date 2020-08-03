@@ -1,19 +1,21 @@
 import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import Dashboard from './Dashboard';
-import { colors, darkTheme, lightTheme } from '../style/global.js';
+import { colors, darkTheme, lightTheme, breakpoints } from '../style/global.js';
 
 const Header = styled.div`
     box-sizing: border-box;
-
-    min-height: 245px;
+    // min-height: 245px;
     display: flex;
-    position: relative;
-    padding: 40px calc((162 / 1440) * 100%) 0;
+    flex-direction: row;
+    // position: relative;
+    // padding: 40px calc((162 / 1440) * 100%) 0;
+    width: calc( (1 - (162 / 1440)*2) * 100%);
     justify-content: space-between;
     align-items: top;
     text-transform: capitalize;
     transition: background-color 600ms ease-in-out;
+    z-index: 2;
 
     h2{
         margin-top: 0;
@@ -24,19 +26,32 @@ const Header = styled.div`
     }
 
     ${({ theme }) => theme === 'dark' && css`
-        background-color: ${darkTheme.veryDarkBlueTopBg};
         .followers-number{
             color: ${darkTheme.blueText};
         }
     `}
 
     ${({ theme }) => theme === 'light' && css`
-    background-color: ${lightTheme.paleBlue};
-    .followers-number{
-        color: ${lightTheme.darkBlueText};
-    }
-`}
+        .followers-number{
+            color: ${lightTheme.darkGreyText};
+        }
+    `}
 
+    @media (max-width: ${breakpoints.mobile}){
+        flex-direction: column;
+        
+        ${({ theme }) => theme === 'light' && css`
+            .theme-toggle-wrapper{
+                border-top: 1px solid ${lightTheme.darkGreyLine};
+            }
+        `};
+
+        ${({ theme }) => theme === 'dark' && css`
+            .theme-toggle-wrapper{
+                border-top: 1px solid ${darkTheme.blueText};
+            }
+        `};
+    }
 `;
 
 const ThemeToggle = styled.span`
@@ -55,7 +70,13 @@ const ThemeToggle = styled.span`
         width: 50px;
         border-radius: 1em;
         opacity: 0.8;
-        background: linear-gradient(45deg, ${darkTheme.toggleGradientOne}, ${darkTheme.toggleGradientTwo});
+        ${({ theme }) => theme === 'dark' && css`
+            background: linear-gradient(45deg, ${darkTheme.toggleGradientOne}, ${darkTheme.toggleGradientTwo});
+        `}
+
+        ${({ theme }) => theme === 'light' && css`
+            background: ${lightTheme.toggleBg};
+        `}
     }
 
     &::after{
@@ -66,19 +87,19 @@ const ThemeToggle = styled.span`
        width: 18px; 
        border-radius: 50%;
        ${({ theme }) => theme === 'dark' && css`
-       background: ${darkTheme.darkBlue};
+            background: ${darkTheme.darkBlue};
        `}
 
        ${({ theme }) => theme === 'light' && css`
-       background: ${lightTheme.whiteBg};
+            background: ${lightTheme.whiteBg};
        `}
-
     }
 `;
 
 const ThemeSwitch = styled.label`
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     [type=checkbox]{
         position: absolute;
@@ -88,6 +109,13 @@ const ThemeSwitch = styled.label`
     [type=checkbox]:checked+${ThemeToggle}::after{
         transform: translate(22%, -120%);
     }
+    ${({ theme }) => theme === 'dark' && css`
+    color: ${darkTheme.blueText}
+    `}
+
+    ${({ theme }) => theme === 'light' && css`
+        color: ${lightTheme.darkGrayishBlueText};
+    `}
 `;
 
 function DashboardHeader({theme, setTheme, data}){
@@ -106,9 +134,11 @@ function DashboardHeader({theme, setTheme, data}){
         </div>
         <div className="theme-toggle-wrapper">
             <ThemeSwitch theme={theme}>
-                Dark Mode
-                <input type="checkbox" onChange={themeToggleHandler}/>
-                <ThemeToggle theme={theme}></ThemeToggle>
+                <div>Dark Mode</div>
+                <div>
+                    <input type="checkbox" onChange={themeToggleHandler}/>
+                    <ThemeToggle theme={theme}></ThemeToggle>
+                </div>
             </ThemeSwitch>
         </div>
 

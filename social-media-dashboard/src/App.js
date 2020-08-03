@@ -6,14 +6,30 @@ import DashboardHeader from './components/DashboardHeader';
 import styled, { css } from 'styled-components';
 import { darkTheme, lightTheme } from './style/global.js';
 
-// const socialMediaData = {"hi":"ho"};
 const statusData = socialMediaData;
-const Body = styled.div`
-  height: 100vh;
+
+const Wrapper = styled.div`
+  height: 245px;
+  width: 100%; 
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  ${({ theme }) => theme === 'dark' && css`
+    background-color: ${darkTheme.veryDarkBlueBg};
+  `}
+
+  ${({ theme }) => theme === 'light' && css`
+    background-color: ${lightTheme.paleBlue};
+  `}
+`;
+const AppContainer = styled.div`
+  // height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-item: center;
+  align-items: center;
   font-size: 14px;
   font-family: "Inter", sans-serif;
   transition: background 0.6s ease;
@@ -22,7 +38,7 @@ const Body = styled.div`
     color: ${darkTheme.white};
     background-color: ${darkTheme.veryDarkBlueBg};
     .dashboard-header{
-      background-color: ${darkTheme.white};
+      // background-color: ${darkTheme.white};
     }  
   `}
 
@@ -36,10 +52,11 @@ const Body = styled.div`
 function App() {
   const [theme, setTheme] = useState('dark');
   return (
-      <Body theme={theme}>
-        <DashboardHeader theme={theme} setTheme={setTheme} data={statusData}></DashboardHeader>
-        <Dashboard theme={theme} data={statusData}></Dashboard>
-      </Body>
+        <AppContainer theme={theme}>
+          <Wrapper theme={theme}></Wrapper>
+          <DashboardHeader theme={theme} setTheme={setTheme} data={statusData}></DashboardHeader>
+          <Dashboard theme={theme} data={statusData}></Dashboard>
+        </AppContainer>
   );
 }
 

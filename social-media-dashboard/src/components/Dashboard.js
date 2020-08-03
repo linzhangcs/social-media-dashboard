@@ -10,13 +10,14 @@ import up from '../images/icon-up.svg';
 
 const DashboardGrid = styled.div`
     box-sizing: border-box;
-    position: absolute;
+    // position: absolute;
     width: calc( (1 - (162 / 1440)*2) * 100%);
-    top: 136px;
-    left: calc((162 / 1440) * 100%);
+    // top: 136px;
+    // left: calc((162 / 1440) * 100%);
     display: grid;
     grid-gap: 24px;    
     grid-template-columns: 1fr;
+    z-index: 2;
 
     @media (min-width: ${breakpoints.tabletlrg}){
         grid-template-columns: repeat(2, 1fr);
