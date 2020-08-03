@@ -5,7 +5,6 @@ import { colors, darkTheme, lightTheme, breakpoints } from '../style/global.js';
 
 const Header = styled.div`
     box-sizing: border-box;
-    // min-height: 245px;
     display: flex;
     flex-direction: row;
     // position: relative;
@@ -16,6 +15,7 @@ const Header = styled.div`
     text-transform: capitalize;
     transition: background-color 600ms ease-in-out;
     z-index: 2;
+    margin-bottom: 40px;
 
     h2{
         margin-top: 0;
@@ -110,7 +110,7 @@ const ThemeSwitch = styled.label`
         transform: translate(22%, -120%);
     }
     ${({ theme }) => theme === 'dark' && css`
-    color: ${darkTheme.blueText}
+        color: ${darkTheme.blueText};
     `}
 
     ${({ theme }) => theme === 'light' && css`

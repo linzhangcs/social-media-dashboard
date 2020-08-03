@@ -27,6 +27,7 @@ Your users should be able to:
 - 07/27 - theme toggle - pass theme btw components & style dark/light theme for header & placement for dashboard grid - 2.5 hrs
 - 07/28 - dashboard grid layout - setup the grid and nested flexbox for items, used flex-wrap for daily stats items. Also used extending component in styled components, styled(component), and used border-image-source, used linear-gradient as border and border-image-slice. - 2 hrs 
 - 07/29 - finish styling all the element within a dashboard card - Ticker & PlatformIcon and add light theme version for them & added tablet and mobile layout changes - 3 hrs
+- 08/02 - try different options to rearrange the layout for the header color block - 1 hr
 
 ## Tools & tech used:
 - react.js
